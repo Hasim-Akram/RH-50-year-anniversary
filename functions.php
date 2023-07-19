@@ -1,22 +1,20 @@
 <?php
 
 
-
-
-// error_reporting(E_ALL & ~E_NOTICE);
+ error_reporting(E_ALL & ~E_NOTICE);
 
 //     session_start();
 	
 
 
-	class edep{
+	class register{
 
 
 
 			private $host="localhost";
 			private $user="root";
 			private $pass="";
-			private $db="edepartment";
+			private $db="rh50";
 
 
 			public $connection;
@@ -49,12 +47,12 @@
 
 
 			//daata insert method
-				public function empdata($name,$designation,$office,$department,$email,$contact,$uimage,$date, $ip,$address,$imaget){
+				public function register($name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$permanentadd,$info,$tshirt,$uimage,$imaget){
 
-					$sql="INSERT INTO empdata(name,designation,office,department,email,contact,image,date,ip,address) values('$name','$designation','$office','$department','$email','$contact','$uimage','$date','$ip','$address')";
+					$sql="INSERT INTO register(name,fname,mname,designation,ssc,blood,email,contact,noguest,guestname,paymode,payamount,paydate,paynumber,trxid,presentadd,permanentadd,info,tshirt,image) values('$name','$fname','$mname','$designation','$sscyear','$blood','$email','$contact','$guestno','$guestname','$paymode','$payamount','$paydate','$paynumber','$trxid','$presentadd','$permanentadd','$info','$tshirt','$uimage')";
 
 
-				    move_uploaded_file($imaget,'image/'.$uimage);
+				    move_uploaded_file($imaget,'images/'.$uimage);
 
 
 
@@ -76,336 +74,336 @@
 
 
 
-				public function userinfo($name, $email,$username,$password){
+			// 	public function userinfo($name, $email,$username,$password){
 
 
-					$sql="INSERT INTO user(name,email,username,password) values('$name','$email','$username','$password')";
+			// 		$sql="INSERT INTO user(name,email,username,password) values('$name','$email','$username','$password')";
 
 
-					$data = $this -> connection -> query($sql);
+			// 		$data = $this -> connection -> query($sql);
 
-					if ($data) {
-						return 'your user id created';
-					}else{
-						return 'please fill up form';
-					}
-
-
-
-				}
+			// 		if ($data) {
+			// 			return 'your user id created';
+			// 		}else{
+			// 			return 'please fill up form';
+			// 		}
 
 
 
-				// //login user 
-
-
-				// 	public function login($uname,$upass){
-
-
-				// 		$sql ="SELECT * FROM user WHERE username='$uname' and password='$upass' ";
-
-				// 		$userloginfo = $this -> connection -> query($sql);
-
-				// 		if ($userloginfo -> num_rows >=1 ){
-
-				// 			while($userloginfod = $userloginfo -> fetch_assoc()){
-
-				// 				$_SESSION['username']=$userloginfod['username'];
-
-				// 			}
+			// 	}
 
 
 
-				// 			header("location:edep.php");
-				// 		}else{
-				// 			return $userloginfo;
-				// 		}
+			// 	// //login user 
+
+
+			// 	// 	public function login($uname,$upass){
+
+
+			// 	// 		$sql ="SELECT * FROM user WHERE username='$uname' and password='$upass' ";
+
+			// 	// 		$userloginfo = $this -> connection -> query($sql);
+
+			// 	// 		if ($userloginfo -> num_rows >=1 ){
+
+			// 	// 			while($userloginfod = $userloginfo -> fetch_assoc()){
+
+			// 	// 				$_SESSION['username']=$userloginfod['username'];
+
+			// 	// 			}
 
 
 
-
-
-
-				// 	}
-
-
-				//data view function
-
-				public function viewmethod($depname){
-
-
-					$sql ="SELECT * FROM empdata WHERE department ='$depname' ";
-
-
-					$data = $this -> connection -> query($sql);
-
-					if ($data){
-						return $data;
-					}else{
-						return false;
-					}
+			// 	// 			header("location:edep.php");
+			// 	// 		}else{
+			// 	// 			return $userloginfo;
+			// 	// 		}
 
 
 
 
-				}
-
-				//data delete from emp data
-
-				public function deletedata($ddata){
 
 
-					$sql ="DELETE FROM empdata where id='$ddata'";
-
-					$ddatameg= $this -> connection -> query($sql);
-
-					if ($ddatameg) {
-						echo 'delete successful';
-					}else{
-						echo 'data id not found';
-					}
+			// 	// 	}
 
 
+			// 	//data view function
 
-				}
-
-				//update information
-
-
-				public function updateinfo($updata){
+			// 	public function viewmethod($depname){
 
 
-					$sql ="SELECT * FROM empdata where id='$updata'";
-
-					$uppp= $this -> connection -> query($sql);
-
-					if ($uppp) {
-						return $uppp;
-					}else{
-						return false;
-					}
+			// 		$sql ="SELECT * FROM empdata WHERE department ='$depname' ";
 
 
-				}
-				public function updatedata($name,$designation,$office,$department,$email,$contact,$date,$ip,$address,$id){
+			// 		$data = $this -> connection -> query($sql);
+
+			// 		if ($data){
+			// 			return $data;
+			// 		}else{
+			// 			return false;
+			// 		}
 
 
 
-					$sql ="UPDATE empdata SET name='$name', designation='$designation', office='$office', department='$department', email='$email', contact='$contact', date='$date', ip='$ip', address='$address' WHERE id='$id'";
 
-						 $this -> connection -> query($sql);
+			// 	}
+
+			// 	//data delete from emp data
+
+			// 	public function deletedata($ddata){
+
+
+			// 		$sql ="DELETE FROM empdata where id='$ddata'";
+
+			// 		$ddatameg= $this -> connection -> query($sql);
+
+			// 		if ($ddatameg) {
+			// 			echo 'delete successful';
+			// 		}else{
+			// 			echo 'data id not found';
+			// 		}
+
+
+
+			// 	}
+
+			// 	//update information
+
+
+			// 	public function updateinfo($updata){
+
+
+			// 		$sql ="SELECT * FROM empdata where id='$updata'";
+
+			// 		$uppp= $this -> connection -> query($sql);
+
+			// 		if ($uppp) {
+			// 			return $uppp;
+			// 		}else{
+			// 			return false;
+			// 		}
+
+
+			// 	}
+			// 	public function updatedata($name,$designation,$office,$department,$email,$contact,$date,$ip,$address,$id){
+
+
+
+			// 		$sql ="UPDATE empdata SET name='$name', designation='$designation', office='$office', department='$department', email='$email', contact='$contact', date='$date', ip='$ip', address='$address' WHERE id='$id'";
+
+			// 			 $this -> connection -> query($sql);
 						
 
 
 
-				}
-				///add network for office
+			// 	}
+			// 	///add network for office
 
 
-				public function addnetwork($name,$ip,$subnet,$office){
+			// 	public function addnetwork($name,$ip,$subnet,$office){
 
 
-						$sql ="insert into network(name,ip,subnet,office) values('$name','$ip','$subnet','$office')";
+			// 			$sql ="insert into network(name,ip,subnet,office) values('$name','$ip','$subnet','$office')";
 
 
-						$this -> connection -> query($sql);
+			// 			$this -> connection -> query($sql);
 
 
 
 
-				}
+			// 	}
 
 
-				//add pbs information
+			// 	//add pbs information
 
 
-				public function addpbs($pbsname,$pbsid,$pbslocation){
+			// 	public function addpbs($pbsname,$pbsid,$pbslocation){
 
 
-					$sql ="insert into pbsinfo(pbsname,pbsid,pbslocation) values('$pbsname','$pbsid','$pbslocation')";
+			// 		$sql ="insert into pbsinfo(pbsname,pbsid,pbslocation) values('$pbsname','$pbsid','$pbslocation')";
 
 
-					$this -> connection ->query($sql);
-				}
+			// 		$this -> connection ->query($sql);
+			// 	}
 
 
-				// for view pbs
+			// 	// for view pbs
 
-				public function pbsview(){
-
-
-					$sql="SELECT * FROM pbsinfo";
-
-					$pbsinfo =$this -> connection -> query($sql);
-
-					if ($pbsinfo) {
-						return $pbsinfo;
-					}else{
-						return false;
-					}
-				}
+			// 	public function pbsview(){
 
 
-				//add offices
+			// 		$sql="SELECT * FROM pbsinfo";
 
-				public function addoffice($pbsname,$officename,$officecode,$officetype,$officaddress){
+			// 		$pbsinfo =$this -> connection -> query($sql);
 
-
-					$sql ="insert into officeinfo(pbsname,officename,officecode,officetype,officeaddress) values('$pbsname','$officename','$officecode','$officetype','$officaddress') ";
-
-					$this -> connection -> query($sql);
-
-
-				}
-
-
-				///for view office at department
+			// 		if ($pbsinfo) {
+			// 			return $pbsinfo;
+			// 		}else{
+			// 			return false;
+			// 		}
+			// 	}
 
 
-				public function officeview(){
+			// 	//add offices
+
+			// 	public function addoffice($pbsname,$officename,$officecode,$officetype,$officaddress){
 
 
-					$sql ="SELECT * FROM officeinfo";
+			// 		$sql ="insert into officeinfo(pbsname,officename,officecode,officetype,officeaddress) values('$pbsname','$officename','$officecode','$officetype','$officaddress') ";
 
-					$offdd=$this -> connection -> query($sql);
+			// 		$this -> connection -> query($sql);
 
-					if ($offdd) {
-						return $offdd;
-					}else{
-						return false;
-					}
-				}
+
+			// 	}
+
+
+			// 	///for view office at department
+
+
+			// 	public function officeview(){
+
+
+			// 		$sql ="SELECT * FROM officeinfo";
+
+			// 		$offdd=$this -> connection -> query($sql);
+
+			// 		if ($offdd) {
+			// 			return $offdd;
+			// 		}else{
+			// 			return false;
+			// 		}
+			// 	}
 
 			
 
 
 
-				public function officeviewall($offid){
+			// 	public function officeviewall($offid){
 
 
-					$sql ="SELECT * FROM officeinfo where id='$offid'";
+			// 		$sql ="SELECT * FROM officeinfo where id='$offid'";
 
-					$offdd=$this -> connection -> query($sql);
+			// 		$offdd=$this -> connection -> query($sql);
 
-					if ($offdd) {
-						return $offdd;
-					}else{
-						return false;
-					}
-				}
-
-
-
-				// update office
-
-
-				public function updateoffice($pbsname,$officename,$officecode,$officetype,$officaddress,$offid){
-
-					$sql ="UPDATE officeinfo SET pbsname='$pbsname', officename='$officename',officecode='$officecode',officetype='$officetype',officeaddress='$officaddress' WHERE id='$offid' ";
-
-					$this -> connection -> query($sql);
-
-				}
-
-
-				/// office delete 
-
-				public function officedelete($offdata){
-
-					$sql ="DELETE FROM officeinfo where id='$offdata'";
-					$this -> connection -> query($sql);
-				}
+			// 		if ($offdd) {
+			// 			return $offdd;
+			// 		}else{
+			// 			return false;
+			// 		}
+			// 	}
 
 
 
-
-				///for network view 
-				public function networkview(){
+			// 	// update office
 
 
-					$sql ="SELECT office,ip FROM network ";
+			// 	public function updateoffice($pbsname,$officename,$officecode,$officetype,$officaddress,$offid){
 
-					$networkdd=$this -> connection -> query($sql);
+			// 		$sql ="UPDATE officeinfo SET pbsname='$pbsname', officename='$officename',officecode='$officecode',officetype='$officetype',officeaddress='$officaddress' WHERE id='$offid' ";
 
-					if ($networkdd) {
-						return $networkdd;
-					}else{
-						return false;
-					}
+			// 		$this -> connection -> query($sql);
 
-				}
+			// 	}
 
 
-				///add department 
-				 public function adddepartment($pbsname,$officename,$depname,$depcode,$iprange){
+			// 	/// office delete 
+
+			// 	public function officedelete($offdata){
+
+			// 		$sql ="DELETE FROM officeinfo where id='$offdata'";
+			// 		$this -> connection -> query($sql);
+			// 	}
 
 
 
-					$sql ="insert into department(pbsname,officename,depname,depcode,iprange) values('$pbsname','$officename','$depname','$depcode','$iprange')";
 
-					$this -> connection -> query($sql);
-
-				}
-
-				//department view
-
-				public function deparmentview(){
+			// 	///for network view 
+			// 	public function networkview(){
 
 
-					$sql ="SELECT * FROM department";
+			// 		$sql ="SELECT office,ip FROM network ";
 
-					$depdataa=$this -> connection -> query($sql);
-					if ($depdataa) {
-						return $depdataa;
-					}else{
-						return false;
-					}
+			// 		$networkdd=$this -> connection -> query($sql);
+
+			// 		if ($networkdd) {
+			// 			return $networkdd;
+			// 		}else{
+			// 			return false;
+			// 		}
+
+			// 	}
 
 
-				}
+			// 	///add department 
+			// 	 public function adddepartment($pbsname,$officename,$depname,$depcode,$iprange){
 
 
-				//count department
+
+			// 		$sql ="insert into department(pbsname,officename,depname,depcode,iprange) values('$pbsname','$officename','$depname','$depcode','$iprange')";
+
+			// 		$this -> connection -> query($sql);
+
+			// 	}
+
+			// 	//department view
+
+			// 	public function deparmentview(){
+
+
+			// 		$sql ="SELECT * FROM department";
+
+			// 		$depdataa=$this -> connection -> query($sql);
+			// 		if ($depdataa) {
+			// 			return $depdataa;
+			// 		}else{
+			// 			return false;
+			// 		}
+
+
+			// 	}
+
+
+			// 	//count department
 
 				
 				
-				public function  countoff(){
+			// 	public function  countoff(){
 
 
-					$sql="SELECT count(id) as ttoff FROM officeinfo";
+			// 		$sql="SELECT count(id) as ttoff FROM officeinfo";
 
 				  
-					$count = $this -> connection -> query($sql);
+			// 		$count = $this -> connection -> query($sql);
 					 
-				  if ($count) {
-					return $count;
-				}else{
-					return false;
-				}
+			// 	  if ($count) {
+			// 		return $count;
+			// 	}else{
+			// 		return false;
+			// 	}
 				
 
-			}
+			// }
 
-				//count department
+			// 	//count department
 
 				
 				
-						public function countdep(){
+			// 			public function countdep(){
 
 
-                        $sql="SELECT count(id) as tt FROM department";
+            //             $sql="SELECT count(id) as tt FROM department";
 
                       
-                        $count = $this -> connection -> query($sql);
+            //             $count = $this -> connection -> query($sql);
                          
-                      if ($count) {
-						return $count;
-					}else{
-						return false;
-					}
+            //           if ($count) {
+			// 			return $count;
+			// 		}else{
+			// 			return false;
+			// 		}
 					
 
-				}
+			// 	}
 
 
 
@@ -414,84 +412,84 @@
 				
 
 
-				// for device view 
+			// 	// for device view 
 
 
-				public function deviceview(){
+			// 	public function deviceview(){
 
-					$sql ="SELECT * FROM network";
+			// 		$sql ="SELECT * FROM network";
 
-					$netdev =$this -> connection -> query($sql);
+			// 		$netdev =$this -> connection -> query($sql);
 
-					if ($netdev) {
-						return $netdev;
-					}else{
-						return false;
-					}
-
-
-				}
-
-				// for department edit
+			// 		if ($netdev) {
+			// 			return $netdev;
+			// 		}else{
+			// 			return false;
+			// 		}
 
 
-				public function depedit($depid){
+			// 	}
 
-					$sql ="SELECT * FROM department where id='$depid'";
-
-					$depdaata= $this -> connection ->query($sql);
-
-					if ($depdaata) {
-						return $depdaata;
-					}else{
-						return false;
-					}
-
-				}
+			// 	// for department edit
 
 
-				//department update 
+			// 	public function depedit($depid){
 
-				public function depupdate($pbsname,$officename,$depname,$depcode,$iprange,$depid){
+			// 		$sql ="SELECT * FROM department where id='$depid'";
 
-						$sql= "UPDATE department SET pbsname='$pbsname', officename='$officename', depname='$depname', depcode='$depcode', iprange='$iprange' WHERE id='$depid'";
+			// 		$depdaata= $this -> connection ->query($sql);
 
-						 $this -> connection -> query($sql);
+			// 		if ($depdaata) {
+			// 			return $depdaata;
+			// 		}else{
+			// 			return false;
+			// 		}
 
-
-				}
-
-
-
-				/// department delete 
-
-				public function deletedep($depdeldata){
+			// 	}
 
 
-					$sql ="DELETE FROM department where id='$depdeldata' ";
+			// 	//department update 
 
-					$this -> connection -> query($sql);
+			// 	public function depupdate($pbsname,$officename,$depname,$depcode,$iprange,$depid){
 
-				}
+			// 			$sql= "UPDATE department SET pbsname='$pbsname', officename='$officename', depname='$depname', depcode='$depcode', iprange='$iprange' WHERE id='$depid'";
+
+			// 			 $this -> connection -> query($sql);
+
+
+			// 	}
 
 
 
-				/// show dep in emp.php
+			// 	/// department delete 
+
+			// 	public function deletedep($depdeldata){
 
 
-				public function showdep(){
+			// 		$sql ="DELETE FROM department where id='$depdeldata' ";
 
-					$sql = "SELECT * FROM department";
+			// 		$this -> connection -> query($sql);
 
-					$showdepdata=$this -> connection -> query($sql);
-					if ($showdepdata) {
-						return $showdepdata;
-					}else{
-						return false;
-					}
+			// 	}
 
 
-				}
+
+			// 	/// show dep in emp.php
+
+
+			// 	public function showdep(){
+
+			// 		$sql = "SELECT * FROM department";
+
+			// 		$showdepdata=$this -> connection -> query($sql);
+			// 		if ($showdepdata) {
+			// 			return $showdepdata;
+			// 		}else{
+			// 			return false;
+			// 		}
+
+
+			// 	}
 
 
 

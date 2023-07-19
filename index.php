@@ -63,7 +63,7 @@
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">reg</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Registration</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                     </button>
@@ -78,6 +78,8 @@
                                 </div>
                             </div>
                             </div>
+
+
 
                             <!-- Modal login-->
                             <div class="modal fade" id="exampleModallog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -100,9 +102,11 @@
                             </div>
                             </div>
 
+
+
                              <!-- Modal instruction-->
                              <div class="modal fade" id="exampleModalins" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">instruction</h5>
@@ -111,11 +115,96 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    ...
+                                            <div class="card text-center">
+                                                    <div class="card-header">
+                                                            <h4>রেজিষ্ট্রেশন ও ফি সংক্রান্ত </h4>
+                                                    </div>
+                                                    
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item"> ০১)রেজিষ্ট্রেশন ফি  স্কুলের সকল প্রাক্তন ছাত্র-ছাত্রী জনপ্রতি =১,০০০/-টাকা করে, স্কুলের সকল  বর্তমান ছাত্র-ছাত্রী জনপ্রতি =৫০০/-টাকা করে, অনুষ্ঠানে আগত প্রতিজন অতিথির জন্য জনপ্রতি=৫০০/-টাকা করে নির্ধারিত হয়েছে।</i>
+                                                       
+                                                        
+                                                        <li class="list-group-item">০২)সূবর্ণজয়ন্তী-২০২৪ অনুষ্ঠানে অংশগ্রহনকারী সকলকে অবশ্যই রেজিষ্ট্রেশন সম্পুর্ন করতে হবে। বিনা রেজিষ্ট্রেশনে কাউকে অনুষ্ঠানে অংশগ্রহন করতে দেয়া হবে না। 
+                                                       
+                                                        </li>
+                                                        <li class="list-group-item">০৩)রেজিষ্ট্রেশন ফরম পূরন করার পূর্বে লিস্টে প্রদান করা নাম্বার ও ব্যাংক অ্যকাউন্টে অবশ্যই নির্ধারিত রেজিষ্ট্রেশন ফি জমা দিতে হবে এবং টাকা জমা দেওয়ার তথ্য দিয়ে রেজিষ্ট্রেশন সম্পুর্ন করতে হবে।
+                                                        </li>
+
+                                                        <li>বিকাশঃ  </li>
+                                                        <li>নগদঃ  </li>
+                                                        <li>রকেটঃ  </li>
+                                                        <li>উপায়ঃ  </li>
+                                                        <li>শিউর ক্যাশঃ  </li>
+                                                        <li>ব্যাংক অ্যকাউন্টঃ   </li>
+                                                        <li class="list-group-item">০৪)রেজিষ্ট্রেশন ফি জমা ও রেজিষ্ট্রেশন ফরম পূরন করার পর অবশ্যই অনলাইন থেকে অবশ্যই অংশগ্রহনকারীর কপি(কুপন) ডাউনলোড করে প্রিন্ট করতে হবে এবং টি-শার্ট, গিফট বক্স, খাবার ও লটারির পুরস্কার বুঝে নিতে আপনাকে অবশ্যই সূবর্ণজয়ন্তী উদযাপনের দিন কুপন টি দেখাতে হবে।                                                   </li>
+                                                        <li class="list-group-item">০৫)রেজিষ্ট্রেশন ফি জমা ও রেজিষ্ট্রেশন ফরম পূরন করার  শেষ তারিখ ৩১ ডিসেম্বর ২০২৪                                                </li>
+                                                        <li class="list-group-item">০৬)রেজিষ্ট্রেশন  সম্পুর্ন হলে আপনার পেমেন্ট স্ট্যাটাস চেক করুন ও লগইন করে প্রয়োজনীয় তথ্য যাচাই করুন এবং কোন তথ্য ভূল হলে তা তথ্য সংশোধন করতে সংশোধন(Edit) বাটনে ক্লিক করুন এবং পূনরায় সাবমিট করুন।                                                 </li>
+                                                        <li class="list-group-item">০৭)ব্যাচ ভিত্তিক রেজিষ্ট্রেশন চেক করতে “অনলাইন রেজিষ্ট্রেশন লিস্ট” ক্লিক করুন।  আপনার ব্যাচ সহ সকলকে রেজিষ্ট্রেশন করতে উৎসাহী করুন।                                 </li>
+                                                    </ul>
+
+
+                                                    <div class="card-header">
+                                                            <h4>স্থান ও সময়</h4>
+                                                    </div>
+
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item">০১)স্থানঃ স্কুল প্রাঙ্গণ,  রাস্তার হাট হাজী এ গফুর উচ্ছ বিদ্যালয়</i>
+                                                       
+                                                        
+                                                        <li class="list-group-item">০২) 
+                                                        সময়ঃ ১৩ এপ্রিল ২০২৪, রোজঃ শনিবার
+                                                       
+                                                        </li>
+
+                                                    </ul>
+
+                                                    <div class="card-header">
+                                                            <h4>রেজিষ্ট্রেশনের সাথে কি কি পাবেন</h4>
+                                                    </div>
+
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item">টি-শার্ট, দুপুরের খাবার, গিফট বক্স, সাংস্কৃতিক অনুষ্ঠান ও লটারি</i>
+                                                       
+                                                        
+                                                        
+
+                                                    </ul>
+
+                                                    <div class="card-header">
+                                                            <h4>যে কোন তথ্যের জন্য যোগাযোগ</h4>
+                                                    </div>
+
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item">মোমিন উল্লাহঃ 01813876815</i>
+                                                        <li class="list-group-item">তুহিন হোসেনঃ 01707837131</i>
+                                                        <li class="list-group-item">মেহেদী হাসান শিপনঃ 01813677990 </i>
+                                                       
+                                                        
+                                                        
+
+                                                    </ul>
+
+                                                    <div class="card-header">
+                                                            <h4>রেজিষ্ট্রেশন ও আইটি সংক্রান্ত</h4>
+                                                    </div>
+
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item">হাশিমঃ 01820230983/ 01305516571</i>
+                                                       
+                                                        
+                                                        
+
+                                                    </ul>
+
+                                                    
+                                                    
+                                                </div>   
+                                    
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    
                                 </div>
                                 </div>
                             </div>
@@ -133,14 +222,25 @@
                                                   </div>
                                                 </div>
                                             </div>
+                                          
                              </section>
   
     
             
                <!--section time count down  -->
 
+                            <section class="hr">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
 
-        <section class="timecount">
+
+        <section class="timecount ">
             <div class="container">
                <div class="row">
                     <div class="col-md-6">
@@ -151,13 +251,13 @@
                            
                     </div>
             
-                  <div class="col-md-6  border border-info text-center">
+                  <div class="col-md-6 count text-center">
                         <h3>রেজিষ্ট্রেশনের শেষ তারিখ ৩১ ডিসেম্বর পর্যন্ত।  </h3>
                         <h4>রেজিষ্ট্রেশনের আর বাকি </h4>
                         <hr>
                         <div class="container">
                                     
-                                    <div id="countdown">
+                                    <div id="countdown" class="border border-info ">
                                         <ul>
                                         <li><span id="days"></span>দিন</li>
                                         <li><span id="hours"></span>ঘন্টা</li>
@@ -177,7 +277,15 @@
 
          </section>
 
-
+                            <section class="hr">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
       <!-- Information Section -->
              
             
@@ -192,7 +300,7 @@
                             
 
                        
-                            <div class="card text-center">
+                             <div class="card text-center">
                                     <div class="card-header">
                                             <h4>রেজিষ্ট্রেশন ফি</h4>
                                     </div>
@@ -205,7 +313,7 @@
                                         <i class="fa fa-check"></i>স্কুলের বর্তমান ছাত্র-ছাত্রী =৫০০/-টাকা 
                                         </li>
                                         <li class="list-group-item">
-                                        <i class="fa fa-check"></i>প্রতিজন অতিথি =৫০০/-টাকা
+                                       <i class="fa fa-check"></i>প্রতিজন অতিথি =৫০০/-টাকা
                                         </li>
                                     </ul>
                                     <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal">রেজিষ্ট্রেশন</button>
@@ -272,7 +380,15 @@
                 </div>
             </div>
         </section>
-       
+                            <section class="hr">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
           <!-- Registration info section -->
             <section class="regothers">
                 <div class="container">
@@ -284,10 +400,10 @@
                                 </div>
                                     <div class="card-body">
                                         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">রেজিষ্ট্রেশন</a>
-                                        <a href="#" class="btn btn-primary">ডোনেশন</a>
-                                        <a href="#" class="btn btn-primary">পেমেন্ট স্ট্যাটাস চেক</a></br></br>
-                                        <a href="#" class="btn btn-primary">অংশগ্রহনকারীর কপি</a>
-                                        <a href="#" class="btn btn-primary">জরুরী যোগাযোগ</a></br></br>
+                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">ডোনেশন</a>
+                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModallog">পেমেন্ট স্ট্যাটাস চেক</a></br></br>
+                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#">অংশগ্রহনকারীর কপি</a>
+                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalins">জরুরী যোগাযোগ</a></br></br>
                                     </div>
                                 </div>
                             </div>
@@ -308,7 +424,18 @@
                         </div>
                     </div>
                 </div>
-            </section>  
+        </section>  
+                            <section class="hr">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+
 
             <!-- আয়োজনে -->
             <section class="regothers">
@@ -334,7 +461,7 @@
                     <div class="row bg-info">
                         <div class="col-md-4 offset-md-4 col-sm-6 offset-sm-3">
                                 <div class="developer">
-                                <p>Developed by<a href="facebook.com/hasim.akram.bd">@Hasim-Akram Batch-2011</a></p>
+                                <p>Developed by<a target="_blank" href="facebook.com/hasim.akram.bd">@Hasim-Akram Batch-2011</a></p>
 
                                 </div>
 
