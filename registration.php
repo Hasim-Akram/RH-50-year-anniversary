@@ -6,6 +6,7 @@
 
    
     include 'functions.php';
+    include 'menu.php';
 
 
 
@@ -44,10 +45,10 @@
 
                         $ext =strtolower(end($exp));
                         // $uimage= md5(time().$image).".".$ext;
-                        $uimage= $name.",".$contact.".".$ext;
+                        $uimage= $name."-".$contact.".".$ext;
 
 
-                     $data = $obj -> register($name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$permanentadd,$info,$tshirt,$uimage,$imaget);
+                     $data = $obj -> registration($name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$permanentadd,$info,$tshirt,$uimage,$imaget);
 
 
 
@@ -84,11 +85,13 @@
                  <section class="section">
                  <div class="container">
                       <div class="row">
-                        <div class="justify-content-center col-md-12 px-3">
-
-                          <div class="card">
+                        <div class="justify-content-center col-md-8 offset-md-2 px-3">
+                          <div class="text-center">
+                             <img class="img" src="images\mainlogo.png" style="height: 250px"alt="image">
+                          </div>
+                             <div class="card">
                             <div class="card-body">
-
+                           
 
                                    
                               <h5 class="card-title">Celebration of Golden Jubilee of Raster Hat Hazi A. Gapur High School</h5>
@@ -330,7 +333,7 @@
                                 <div class="row mb-3">
                                   
                                   <div class="offset-sm-3 col-sm-3">
-                                     <input type="submit" name="submit" class="form-control btn-outline-info">
+                                     <input type="submit" name="submit" class="form-control btn-info">
                                    
                                   </div>
                                 </div>
@@ -346,4 +349,13 @@
                       </div>
                     </div>
                     </section>
+
+                    <br>
+                    <br>
+
+
+
+                    <?php
+    include 'footer.php';
+?>
 
