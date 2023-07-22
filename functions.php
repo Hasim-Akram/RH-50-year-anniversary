@@ -2,6 +2,9 @@
 
 
  
+error_reporting(E_ALL & ~E_NOTICE);
+
+session_start();
 
 
 	class register{
@@ -82,6 +85,45 @@
 					}else{
 						return false;
 					}
+
+
+
+
+				}
+
+
+
+				
+
+				public function login($sscyear,$contact){
+
+
+					$sql ="SELECT * FROM register WHERE ssc='$sscyear' and contact='$contact' ";
+
+					$userloginfo = $this -> connection -> query($sql);
+
+					if ($userloginfo -> num_rows >=1 ){
+
+						while($userloginfod = $userloginfo -> fetch_assoc()){
+
+							$_SESSION['contact']=$userloginfod['contact'];
+							$_SESSION['ssc']=$userloginfod['ssc'];
+							$_SESSION['name']=$userloginfod['name'];
+							$_SESSION['id']=$userloginfod['id'];
+							$_SESSION['payamount']=$userloginfod['payamount'];
+							$_SESSION['noguest']=$userloginfod['noguest'];
+							$_SESSION['image']=$userloginfod['image'];
+
+						}
+
+
+
+						header("location:ticket.php");
+					}else{
+						return $userloginfo;
+					}
+
+
 
 
 

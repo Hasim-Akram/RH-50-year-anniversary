@@ -11,6 +11,31 @@ $obj=new register;
 
 
 
+ if (isset($_POST['submit'])) {
+
+  $sscyear=$_POST['sscyear'];
+  $contact=$_POST['contact'];
+
+  if (empty($sscyear) || empty($contact)) {
+
+      echo "<h2>Please fill the field</h2>";
+
+
+
+    // code...
+  }else{
+   $data = $obj -> login($sscyear,$contact);
+   print_r($data);
+
+  }
+
+
+
+// code...
+}
+
+
+
 
 ?>
 
