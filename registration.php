@@ -17,6 +17,9 @@
       if(isset($_POST['submit'])){
 
 
+
+
+
       $name=$_POST['name'];
         $fname=$_POST['fname'];
           $mname=$_POST['mname'];
@@ -24,7 +27,7 @@
               $sscyear=$_POST['sscyear'];
                 $blood=$_POST['blood'];
                    $email=$_POST['email'];
-                    $contact=$_POST['contact'];
+                    $contact=$_POST['contact'];              
                       $guestno=$_POST['guestno'];
                         $guestname=$_POST['guestname'];
                           $paymode=$_POST['paymode'];
@@ -48,14 +51,34 @@
                         $uimage= $name."-".$contact.".".$ext;
 
 
-                     $data = $obj -> registration($name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$permanentadd,$info,$tshirt,$uimage,$imaget);
+                        if(strlen($contact) < 11){
+                          $contact_err="Mobile Number Must be minimum 11 digit";
+                          $errorm="Something wrong, please do registration again!";
+
+                        }else{
+
+                            $data = $obj -> registration($name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$permanentadd,$info,$tshirt,$uimage,$imaget);
+                            if($data){
+                              $successm="Your Registration Complete Successfully!";
+                            }else{
+                              $errorm="Something wrong, please do registration again!";
+                            }                         
+
+                        }
+
+                      }
+
+
+                    
+
+      
+                   
+                 
 
 
 
 
-
-
-      }
+     
     
 
 
@@ -90,11 +113,14 @@
                              <img class="img" src="images\mainlogo.png" style="height: 250px"alt="image">
                           </div>
                              <div class="card">
+                             <h3 class="text-success"><?php echo $successm; ?></h3>
+                         
                             <div class="card-body">
                            
-
+                            <h3 class="text-danger"><?php echo $errorm; ?> </h3>
                                    
                               <h5 class="card-title">Celebration of Golden Jubilee of Raster Hat Hazi A. Gapur High School</h5>
+                              
 
                               <!-- General Form Elements -->
                               <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" enctype="multipart/form-data">
@@ -126,7 +152,7 @@
                                 <div class="row mb-3">
                                   <label  for="inputText" class="col-sm-3 col-form-label">SSC Year</label>
                                             <div class="col-sm-9">
-                                                  <select name="sscyear"  class="form-select" aria-label="Default select example">
+                                                  <select name="sscyear"  class="form-select" aria-label="Default select example" required>
                                                       <option >Select Your SSC Year</option>
                                                       <option >1972</option>
                                                       <option >1973</option>
@@ -222,13 +248,14 @@
                                 <div class="row mb-3">
                                   <label  for="inputNumber" class="col-sm-3 col-form-label">Contact No:</label>
                                   <div class="col-sm-9">
-                                    <input  name="contact" type="number" class="form-control">
+                                    <input  name="contact" type="number" class="form-control" required>
+                                    <span class="text-danger"><?php echo  $contact_err ?></span>
                                   </div>
                                 </div>
                                 <div class="row mb-3">
                                   <label  for="inputNumber" class="col-sm-3 col-form-label">Number Of Guest </label>
                                   <div class="col-sm-9">
-                                    <input  name="guestno" type="number" class="form-control" placeholder="Pay for Per Guest BDT 500/=(For No guest type 0)">
+                                    <input  name="guestno" type="number" class="form-control" placeholder="For No guest type 0">
                                   </div>
                                 </div>
                                 <div class="row mb-3">
@@ -241,8 +268,9 @@
                                  
                                 <div class="row mb-3">
                                   <label  for="inputText" class="col-sm-3 col-form-label">Payment Mode</label>
-                                            <div class="col-sm-9">
-                                                  <select name="paymode"  class="form-select" aria-label="Default select example">
+                                            <div class="col-sm-9
+                                            ">
+                                                  <select name="paymode"  class="form-select" aria-label="Default select example" required>
                                                         <option >Select Payment Mode</option>
                                                         <option >Bkash</option>
                                                         <option >Nagad</option>
@@ -258,14 +286,14 @@
                                 <div class="row mb-3">
                                   <label  for="inputNumber" class="col-sm-3 col-form-label">Payment Amount</label>
                                   <div class="col-sm-9">
-                                    <input  name="payamount" type="number" class="form-control">
+                                    <input  name="payamount" type="number" class="form-control" required>
                                   </div>
                                 </div>
 
                                 <div class="row mb-3">
                                   <label for="inputDate" class="col-sm-3 col-form-label">Payment Date</label>
                                   <div class="col-sm-9">
-                                    <input name="paydate"  type="date" class="form-control">
+                                    <input name="paydate"  type="date" class="form-control" required>
                                   </div>
                                 </div>
 
@@ -278,13 +306,13 @@
                                 <div class="row mb-3">
                                   <label  for="inputNumber" class="col-sm-3 col-form-label">Payment Phone Number / Payment Referece</label>
                                   <div class="col-sm-9">
-                                    <input name="paynumber"  type="text" class="form-control">
+                                    <input name="paynumber"  type="text" class="form-control" required>
                                   </div>
                                 </div>
                                 <div class="row mb-3">
                                   <label  for="inputNumber" class="col-sm-3 col-form-label">Transaction Id/Card/Cheque Number</label>
                                   <div class="col-sm-9">
-                                    <input name="trxid"  type="text" class="form-control">
+                                    <input name="trxid"  type="text" class="form-control" required>
                                   </div>
                                 </div>
                                 <div class="row mb-3">
@@ -311,8 +339,9 @@
                                 <div class="row mb-3">
                                   <label  for="inputText" class="col-sm-3 col-form-label">Your T-Shirt Size</label>
                                             <div class="col-sm-9">
-                                                  <select name="tshirt"  class="form-select" aria-label="Default select example">
+                                                  <select name="tshirt"  class="form-select" aria-label="Default select example" required>
                                                         <option >Select Your T-Shirt Size</option>
+                                                        
                                                         <option >Small</option>
                                                         <option >Medium</option>
                                                         <option >Large</option>
@@ -326,7 +355,7 @@
                                 <div class="row mb-3">
                                   <label  for="inputNumber" class="col-sm-3 col-form-label">Image</label>
                                   <div class="col-sm-9">
-                                    <input name="image" class="form-control" type="file" id="formFile">
+                                    <input name="image" class="form-control" type="file" id="formFile" required>
                                   </div>
                                 </div>
                             

@@ -21,8 +21,8 @@
                 <div class="ticket">
                     <div class="left">
                         <div class="image">
-                            <div class="logimg">
-                                <?php echo $_SESSION['image']; ?>
+                            <div class="logimg" style="height:150px;">
+                                <img style="height:150px;" src="images/<?php echo $_SESSION['image']; ?>">
                             </div>
                             <p class="admit-one">
                                 <span>ADMIT ONE</span>
@@ -74,6 +74,9 @@
                             </div>
                             <p class="ticket-number">Pass id:
                                     <?php echo $_SESSION['id']; ?>
+                            </p>
+                            <p class="ticket-number">T-Shirt:
+                                    <?php echo $_SESSION['tshirt']; ?>
                             </p>
                         </div>
                     </div>

@@ -75,7 +75,7 @@ session_start();
 				public function ssc(){
 
 
-					$sql ="SELECT * FROM register";
+					$sql ="SELECT DISTINCT ssc FROM register";
 
 
 					$sscyear = $this -> connection -> query($sql);
@@ -112,6 +112,7 @@ session_start();
 							$_SESSION['id']=$userloginfod['id'];
 							$_SESSION['payamount']=$userloginfod['payamount'];
 							$_SESSION['noguest']=$userloginfod['noguest'];
+							$_SESSION['tshirt']=$userloginfod['tshirt'];
 							$_SESSION['image']=$userloginfod['image'];
 
 						}
