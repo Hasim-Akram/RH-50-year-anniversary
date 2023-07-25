@@ -10,6 +10,7 @@
     
     
     <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="reg.css">
 
 
     <title>RH-50</title>
