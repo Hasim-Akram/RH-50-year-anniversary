@@ -40,13 +40,74 @@ session_start();
 
 
 
+			//session for ssc year and phone number 
 
+			public function mainlogin($sscyear,$contact){
+
+
+				$sql="INSERT INTO user(ssc,contact) values('$sscyear','$contact')";
+
+				$userloginfogg = $this -> connection -> query($sql);
+				
+
+				if($userloginfogg){
+					$querydata ="SELECT * FROM userinfo";
+					$querydatatt = $this -> connection -> query($querydata);
+
+					if($querydatatt){
+	
+						while($querydatattt = $querydatatt -> fetch_assoc()){
+	
+							$_SESSION['ssc']=$querydatattt['ssc'];
+							$_SESSION['contact']=$querydatattt['contact'];
+							
+	
+						
+					}
+						header("location:main.php");
+					}else{
+						return $querydatatt;
+					}
+				}		
+					
+				else{
+					return $userloginfogg;
+				}
+			
+
+}
 
 
 
 
 
 			//daata insert method
+			public function mainreg($name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$tshirt,$uimage,$imaget){
+
+				$sqldd="INSERT INTO userinfo(name,contact,ssc,designation,fname,mname,email,blood,presentadd,noguest,guestname,paymode,payamount,paydate,paynumber,trxid,tshirt,image) values('$name','$contact','$sscyear','$designation','$fname','$mname','$email','$blood','$presentadd','$guestno','$guestname','$paymode','$payamount','$paydate','$paynumber','$trxid','$tshirt','$uimage')";
+
+
+				move_uploaded_file($imaget,'images/'.$uimage);
+
+				$data = $this -> connection -> query($sqldd);
+
+						 if($data){
+									echo "<script> confirm('Your data submit successfully')</script>";
+							}else{
+								echo "<script> alert('Your Phone number is registered , please login')</script>";
+							   }
+
+
+				
+
+			}
+		
+
+
+
+
+
+			//daata insert method big form
 				public function registration($name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$permanentadd,$info,$tshirt,$uimage,$imaget){
 
 					$sql="INSERT INTO register(name,fname,mname,designation,ssc,blood,email,contact,noguest,guestname,paymode,payamount,paydate,paynumber,trxid,presentadd,permanentadd,info,tshirt,image) values('$name','$fname','$mname','$designation','$sscyear','$blood','$email','$contact','$guestno','$guestname','$paymode','$payamount','$paydate','$paynumber','$trxid','$presentadd','$permanentadd','$info','$tshirt','$uimage')";
@@ -75,7 +136,7 @@ session_start();
 				public function ssc(){
 
 
-					$sql ="SELECT DISTINCT ssc FROM register";
+					$sql ="SELECT DISTINCT ssc FROM userinfo";
 
 
 					$sscyear = $this -> connection -> query($sql);
@@ -98,13 +159,17 @@ session_start();
 				public function login($sscyear,$contact){
 
 
-					$sql ="SELECT * FROM register WHERE ssc='$sscyear' and contact='$contact' ";
+					$sql ="SELECT * FROM userinfo WHERE ssc='$sscyear' and contact='$contact' ";
 
 					$userloginfo = $this -> connection -> query($sql);
+
+					
 
 					if ($userloginfo -> num_rows >=1 ){
 
 						while($userloginfod = $userloginfo -> fetch_assoc()){
+						
+								
 
 							$_SESSION['contact']=$userloginfod['contact'];
 							$_SESSION['ssc']=$userloginfod['ssc'];
@@ -115,21 +180,55 @@ session_start();
 							$_SESSION['tshirt']=$userloginfod['tshirt'];
 							$_SESSION['image']=$userloginfod['image'];
 
+							
+
 						}
 
 
 
 						header("location:ticket.php");
 					}else{
-						return $userloginfo;
+						echo "<script> alert('select ssc year and enter your registered phone number');</script>";
 					}
-
-
-
-
-
-
 				}
+
+				public function  countreg(){
+
+
+					$sql="SELECT count(id) as countreglist FROM userinfo";
+
+				  
+					$count = $this -> connection -> query($sql);
+					 
+				  if ($count) {
+					return $count;
+				}else{
+					return false;
+				}
+				
+
+			}
+
+			//view list
+
+			public function viewmethod(){
+
+
+				$sql ="SELECT * FROM userinfo";
+
+
+				$data = $this -> connection -> query($sql);
+
+				if ($data){
+					return $data;
+				}else{
+					return false;
+				}
+
+
+
+
+			}
 
 
 

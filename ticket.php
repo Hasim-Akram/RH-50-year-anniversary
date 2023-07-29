@@ -15,9 +15,9 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 <link rel="stylesheet" href="css\ticket.css">
-<div class="col-md-12">
+
     <div class="container">
-        <div class="row">
+        <div class="row col-md-12">
                 <div class="ticket">
                     <div class="left">
                         <div class="image">
@@ -62,8 +62,8 @@
                         </p>
                         <div class="right-info-container">
                             <div class="show-name">                                
-                                <h1><?php echo $_SESSION['name']; ?></h1>
-                                <h1><a href="logout.php">Logout</a></h1>
+                                <h1><?php echo $_SESSION['name']; ?> <a href="logout.php">Logout</a></h1>
+                                <h1></h1>
                             </div>
                             <div class="time">
                                 <p>Total guest <span>:</span> <?php echo $_SESSION['noguest']; ?></p>
@@ -81,6 +81,23 @@
                         </div>
                     </div>
                 </div>
+               
             </div>
+            <br>
+            <div class="print text-center">
+                                <button class="btn btn-info"><h5><a href="">Edit</a></h5> </button>                                
+                                <button class="btn btn-info"><h5><a href="">Print</a></h5></button>
+                                <button class="btn btn-info"><h5><a href="">Download</a></h5></button>
+            </div>
+            
         </div>
-    </div>
+
+
+   
+
+    <br>
+    <br>
+
+    <?php
+        include 'footer.php';
+    ?>

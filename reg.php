@@ -1,57 +1,17 @@
-
-
 <?php
-
-
- 
-error_reporting(E_ALL & ~E_NOTICE);
-
-
-
-	class register{
-
-
-
-			private $host="localhost";
-			private $user="root";
-			private $pass="";
-			private $db="rh50";
-
-
-			public $connection;
-
-
-			//database connetion method
-			public function __construct(){
-
-				$connect = new mysqli($this -> host, $this -> user, $this -> pass, $this -> db);
-
-
-				$this -> connection = $connect ;
-
-				
-					}
-
-
-
-
-
-                }
-
-
-
+     session_start();
 ?>
+
+
+
 <?php
+                    include 'functions.php';
 
                     $obj =new register;
 
 
       
-                    if(isset($_POST['submit'])){
-                    
-                    
-                    
-                    
+                    if(isset($_POST['submit'])){                    
                     
                     $name=$_POST['name'];
                       $fname=$_POST['fname'];
@@ -74,6 +34,8 @@ error_reporting(E_ALL & ~E_NOTICE);
                                                             $image=$_FILES['image']['name'];
                                                             $imaget=$_FILES['image']['tmp_name'];
                     
+
+                                                            // print_r([$name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$tshirt,$uimage,$imaget]);
                     
                                       $exp =explode('.', $image);
                     
@@ -81,58 +43,19 @@ error_reporting(E_ALL & ~E_NOTICE);
                                       // $uimage= md5(time().$image).".".$ext;
                                       $uimage= $name."-".$contact.".".$ext;
                     
-                    
-                                      if(strlen($contact) < 11){
-                                        $contact_err="Mobile Number Must be minimum 11 digit";
-                                        $errorm="Something wrong, please do registration again!";
-                    
-                                      }else{
-                    
-                                          $data = $obj -> registration($name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$tshirt,$uimage,$imaget);
+                                          $data = $obj -> mainreg($name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$tshirt,$uimage,$imaget);
                                           if($data){
                                             $successm="Your Registration Complete Successfully!";
                                           }else{
-                                            $errorm="Something wrong, please do registration again!";
+                                            $errorm="Please do registration with proper information!";
                                           }                         
                     
                                       }
                     
                                     
 
+                                    
 
-
-
-
-?>
-<?php
-
-
-			//daata insert method
-				function registration($name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$tshirt,$uimage,$imaget){
-
-					$sql="INSERT INTO userinfo(name,fname,mname,designation,ssc,blood,email,contact,noguest,guestname,paymode,payamount,paydate,paynumber,trxid,presentadd,tshirt,image) values('$name','$fname','$mname','$designation','$sscyear','$blood','$email','$contact','$guestno','$guestname','$paymode','$payamount','$paydate','$paynumber','$trxid','$tshirt','$uimage')";
-
-
-				    move_uploaded_file($imaget,'images/'.$uimage);
-
-
-
-
-					$data = $this -> connection -> query($sql);
-
-							 if($data){
-                                        return "data insert successful";
-                                }else{
-                                         return "data insert failed";
-                                   }
-
-
-					
-
-				}
-            }     
-
- 
 
 
 ?>
@@ -141,13 +64,16 @@ error_reporting(E_ALL & ~E_NOTICE);
     include 'menu.php';
 ?>
 
-
+<link rel="stylesheet" href="css\reg.css">
 
 <div class="container register">
                 <div class="row">
-                    <h2><?php echo $successm; ?> </h2>
-                    <h2><?php echo $errorm; ?> </h2>
+                    
+                    
                 <div class="form-wizard">  
+                  <h2><?php echo $successm; ?> </h2>
+                    <h2><?php echo $errorm; ?> </h2>
+                    <h2><?php echo $contact_err; ?> </h2>
                             <div class="steps">
                                 <ul>
                                 <li>
@@ -168,6 +94,7 @@ error_reporting(E_ALL & ~E_NOTICE);
                                 </li>
                                 </ul>
                             </div>
+                            
                             <div class="myContainer">
                                 <div class="form-container animated">
                                 <h2 class="text-center form-title">Registration</h2>
@@ -181,6 +108,9 @@ error_reporting(E_ALL & ~E_NOTICE);
                                     
 
                                     <div class="form-group">
+
+                                                    
+                                                 
                                     <select name="sscyear"  class="form-select" aria-label="Default select example" required>
                                                       <option >Select Your SSC Year</option>
                                                       <option >1972</option>
@@ -237,7 +167,8 @@ error_reporting(E_ALL & ~E_NOTICE);
                                                       <option >2023</option>
                                                       <option >others</option>
 
-                                                  </select>
+                                                 
+                                              </select>
                                     </div>
                                     <div class="form-group">
                                         <input name="designation" type="text" class="form-control" placeholder="designation">
@@ -245,11 +176,11 @@ error_reporting(E_ALL & ~E_NOTICE);
                                     <div class="form-group text-center mar-b-0">
                                     <input type="button" value="NEXT" class="btn btn-primary next">        
                                     </div>
-                                </form>
+                                
                                 </div>
                                 <div class="form-container animated">
                                 <h2 class="text-center form-title">Personal Info</h2>
-                                <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" enctype="multipart/form-data">
+                               
                                     <div class="form-group">
                                     <input name="fname" type="text" class="form-control" placeholder="Father Name">
                                     </div>
@@ -282,11 +213,11 @@ error_reporting(E_ALL & ~E_NOTICE);
                                     <input type="button" value="BACK" class="btn btn-default back">        
                                     <input type="button" value="NEXT" class="btn btn-primary next">        
                                     </div>
-                                </form>
+                              
                                 </div>
                                 <div class="form-container animated">
                                 <h2 class="text-center form-title">Payment Info</h2>
-                                <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" enctype="multipart/form-data">
+                               
                                     <div class="form-group">
                                     <input  name="guestno" type="number" class="form-control" placeholder="Number Of Guest (for no guest type=0)">
                                     </div>
@@ -323,11 +254,11 @@ error_reporting(E_ALL & ~E_NOTICE);
                                     <input type="button" value="BACK" class="btn btn-default back">        
                                     <input type="button" value="NEXT" class="btn btn-primary next">        
                                     </div>
-                                </form>
+                             
                                 </div>
                                 <div class="form-container animated">
                                 <h2 class="text-center form-title">Submit and Finish</h2>
-                                <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" enctype="multipart/form-data">
+                            
                                     <div class="form-group">
                                     <h3 class="text-center">Thanks for Stay Tuned!</h3>
                                     <p class="text-center">Welcomed to Golden Jubilee</p>
@@ -352,7 +283,9 @@ error_reporting(E_ALL & ~E_NOTICE);
                                     
                                     <div class="form-group text-center mar-b-0"> 
                                     <input type="button" value="BACK" class="btn btn-default back"> 
-                                    <input type="submit" name="submit" value="SUBMIT" class="btn btn-primary submit">         
+                                    <input type="submit" name="submit" value="SUBMIT" class="btn btn-primary submit">
+
+
                                     </div>
                                 </form>
                                 </div>
@@ -372,7 +305,7 @@ error_reporting(E_ALL & ~E_NOTICE);
                 var totalSteps = $(".steps li").length;
 
                         $(".submit").on("click", function(){
-                        return false; 
+                        return true; 
                         });
 
                         $(".steps li:nth-of-type(1)").addClass("active");

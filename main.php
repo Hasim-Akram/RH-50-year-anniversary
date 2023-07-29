@@ -9,24 +9,25 @@ $obj=new register;
 
  $sscyear = $obj-> ssc();
 
- 
+
 
  if (isset($_POST['submit'])) {
 
   $sscyear=$_POST['sscyear'];
   $contact=$_POST['contact'];
-  $data = $obj -> login($sscyear,$contact);
 
-  // if (empty($sscyear) || empty($contact)) {
-  //   // code...
-  //   $errorm="Please Slect SSC Year And Enter Your registered Phone number";
-  // }else{
-   
-   
+  if (empty($sscyear) || empty($contact)) {
 
-  // }
+      echo "<h2>Please fill the field</h2>";
 
-   
+
+
+    // code...
+  }else{
+   $data = $obj -> login($sscyear,$contact);
+   print_r($data);
+
+  }
 
 
 
@@ -46,7 +47,6 @@ $obj=new register;
             <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
               <div class="d-flex justify-content-center py-2">
-              <h5 class="text-info"> <?php echo $errorm;?></h5>
                 <a href="index.php" class="logo d-flex align-items-center w-auto">
                  
                   <span class="d-none d-lg-block"></span>
@@ -56,15 +56,14 @@ $obj=new register;
               <div class="card mb-2">
                 <div class="card-body">
                   <div class="text-center">
-                    
                 <img src="images\mainlogo.png" alt="mainlogo" style="height: 200px;">
                 </div>
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Download Your Entry Pass</h5>
-                    <h6 class="text-center small">Select Your SSC Batch Year & Enter Your Registered Phone Number</h6>
+                    <h5 class="card-title text-center pb-0 fs-4">Fill Up To Enter Website</h5>
+                    <h6 class="text-center">Select Your SSC Batch Year & Enter Your Registered Phone Number</h6>
                   </div>
 
-                  <form class="row g-3 needs-validation" action="<?php echo $_SERVER['PHP_SELF'] ?>"  method="POST">
+                  <form class="row g-3 needs-validation" action="<?php echo $_SERVER['PHP_SELF'] ?>"  method="POST" novalidate>
 
                     <div class="col-md-12">                      
                                   <label  for="inputText" class="col-form-label">SSC Year</label>
@@ -99,10 +98,10 @@ $obj=new register;
                                     </div>
                                   </div>
                                   <div class="col-md-12">
-                                    <button name="submit" class="btn btn-info w-100" type="submit"><h5>Download Entry Pass</h5></button>
+                                    <button name="submit" class="btn btn-primary w-100" type="submit">Submit</button>
                                   </div>
                                   <div class="col-md-12">
-                                    <p>Don't registered? <a href="reg.php" style="color:black">Please Do Registration Here</a></p>
+                                    <p class="mb-0">Don't registered? <a  href="fillup.php">Please Create User</a></p>
                                   </div>
                                 </form>
 
