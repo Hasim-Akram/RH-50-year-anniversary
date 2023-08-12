@@ -232,6 +232,47 @@ session_start();
 
 
 
+			
+			public function edit($contact){
+
+
+				$sql ="SELECT * FROM userinfo where contact='$contact'";
+
+				$uppp= $this -> connection -> query($sql);
+
+				if ($uppp) {
+					return $uppp;
+				}else{
+					return false;
+				}
+
+			}
+
+			public function updatedata($name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$tshirt,$uimage,$imaget){
+
+				$sqlupdate="UPDATE userinfo SET name='$name',ssc='$sscyear',designation='$designation',fname='$fname',mname='$mname',email='$email',blood='$blood',presentadd='$presentadd',noguest='$guestno',guestname='$guestname',paymode='$paymode',payamount='$payamount',paydate='$paydate',paynumber='$paynumber',trxid='$trxid',tshirt='$tshirt',image='$uimage' WHERE contact='$contact'";
+
+
+				move_uploaded_file($imaget,'images/'.$uimage);
+
+				$updatedata = $this -> connection -> query($sqlupdate);
+
+						 if($updatedata){
+									echo "<script> confirm('Your data submit successfully')</script>";
+								
+							}else{
+								echo "<script> alert('Your Phone number is registered , please login')</script>";
+							   }
+							  
+
+
+			}
+			
+		
+
+
+
+
 
 }
 
