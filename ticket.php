@@ -9,7 +9,11 @@
 
 <?php
     include 'menu.php';
-   
+    include 'functions.php';
+    $obj =new register;
+    $u = $obj -> ses($_SESSION['id']);
+
+    
 
 
 ?>
@@ -37,13 +41,15 @@ printpage.focus();
 <link rel="stylesheet" href="css\ticket.css">
 
     <div class="container">
+
         <div class="row col-md-12">
 		
                 <div class="ticket">
                     <div class="left">
                         <div class="image">
                             <div class="logimg" style="height:150px;">
-                                <img style="height:150px; margin:100px 50px;" src="images/<?php echo $_SESSION['image']; ?>">
+                                <img style="height:150px; margin:100px 50px 10px 50px;" src="images/<?php echo $u['image']; ?>">
+                                <button class="btn btn-info" style="margin:5px 0px 10px 50px;"><h5><a href="imageup.php">Update</a></h5></button>
                             </div>
                             <p class="admit-one">
                                 <span>ADMIT ONE</span>

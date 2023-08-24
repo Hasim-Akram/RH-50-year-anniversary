@@ -136,7 +136,7 @@ session_start();
 				public function ssc(){
 
 
-					$sql ="SELECT DISTINCT ssc FROM userinfo";
+					$sql ="SELECT DISTINCT ssc FROM userinfo group by ssc DESC";
 
 
 					$sscyear = $this -> connection -> query($sql);
@@ -154,7 +154,18 @@ session_start();
 
 
 
-				
+				public function ses($id){
+					$sql ="SELECT * FROM userinfo WHERE id=$id ";
+
+  					$udata = $this -> connection -> query($sql);
+					if ($udata -> num_rows >=1 ){
+						$ud = $udata ->fetch_assoc();
+						return $ud;
+						
+					}
+				}
+
+
 
 				public function login($sscyear,$contact){
 
@@ -189,6 +200,8 @@ session_start();
 						header("location:ticket.php");
 					}else{
 						echo "<script> alert('select ssc year and enter your registered phone number');</script>";
+						echo "<script type='text/javascript'> document.location ='login.php'; </script>";
+						
 					}
 				}
 
@@ -248,23 +261,38 @@ session_start();
 
 			}
 
-			public function updatedata($name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$tshirt,$uimage,$imaget){
+			public function updatedata($name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$tshirt){
 
-				$sqlupdate="UPDATE userinfo SET name='$name',ssc='$sscyear',designation='$designation',fname='$fname',mname='$mname',email='$email',blood='$blood',presentadd='$presentadd',noguest='$guestno',guestname='$guestname',paymode='$paymode',payamount='$payamount',paydate='$paydate',paynumber='$paynumber',trxid='$trxid',tshirt='$tshirt',image='$uimage' WHERE contact='$contact'";
-
-
-				move_uploaded_file($imaget,'images/'.$uimage);
+				$sqlupdate="UPDATE userinfo SET name='$name',ssc='$sscyear',designation='$designation',fname='$fname',mname='$mname',email='$email',blood='$blood',presentadd='$presentadd',noguest='$guestno',guestname='$guestname',paymode='$paymode',payamount='$payamount',paydate='$paydate',paynumber='$paynumber',trxid='$trxid',tshirt='$tshirt' WHERE contact='$contact'";
 
 				$updatedata = $this -> connection -> query($sqlupdate);
 
 						 if($updatedata){
-									echo "<script> confirm('Your data submit successfully')</script>";
+							echo "<script>alert('You have successfully update the data');</script>";
+							echo "<script type='text/javascript'> document.location ='ticket.php'; </script>";
 								
 							}else{
 								echo "<script> alert('Your Phone number is registered , please login')</script>";
 							   }
 							  
 
+
+			}
+
+			public function imgupdate($updatename,$updatecontact,$uimage){
+
+				$sqlupdateimg="UPDATE userinfo SET image='$uimage' WHERE contact='$updatecontact'";
+
+				$updatedata = $this -> connection -> query($sqlupdateimg);
+
+						 if($updatedata){
+							echo "<script>alert('You have successfully update the data');</script>";
+							//echo "<script type='text/javascript'> document.location ='ticket.php'; </script>";
+							echo '<meta HTTP-EQUIV="REFRESH" content="0; url=ticket.php">';
+								
+							}else{
+								echo "<script> alert('Your Phone number is registered , please login')</script>";
+							   }
 
 			}
 			

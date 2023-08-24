@@ -38,19 +38,14 @@
                                                   $presentadd=$_POST['presentadd'];
                                                         $tshirt=$_POST['tshirt'];
                     
-                                                            $image=$_FILES['image']['name'];
-                                                            $imaget=$_FILES['image']['tmp_name'];
+                                                          
                     
 
                                                             // print_r([$name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$tshirt,$uimage,$imaget]);
                     
-                                      $exp =explode('.', $image);
+                                    
                     
-                                      $ext =strtolower(end($exp));
-                                      // $uimage= md5(time().$image).".".$ext;
-                                      $uimage= $contact.".".$ext;
-                    
-                                          $updatedata = $obj -> updatedata($name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$tshirt,$uimage,$imaget);
+                                          $updatedata = $obj -> updatedata($name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$tshirt);
                                           if($updatedata){
                                             header("location:login.php");   
                                             $successm="Your Registration Complete Successfully!";
@@ -60,6 +55,10 @@
                                                                 
                     
                                       }
+
+
+
+                                      
                     
                                     
 
@@ -94,7 +93,7 @@
                                 <ul>
                                 <li>
                                     <span>1</span>
-                                    Update  <?php echo $imgdata;?>
+                                    Update
                                 </li>
                                 <li>
                                     <span>2</span> 
@@ -312,11 +311,7 @@
                                                         
                                                    </select>
                                     </div>
-                                    <div class="form-group">
-                                    <label>Your image <img style="height:150px;" src="images/<?php echo $updd['image']; ?>"></label>
-                                    <label  for="inputNumber" class="col-form-label">If want to update Your Image(Size will be 300*300)</label>
-                                    <input name="<?php echo $imgdata; ?>" class="form-control" type="file" id="formFile">
-                                    </div>
+                                   
 
                                     
                                     <div class="form-group text-center mar-b-0"> 

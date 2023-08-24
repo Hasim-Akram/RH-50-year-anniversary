@@ -44,11 +44,7 @@
                                       $uimage= $name."-".$contact.".".$ext;
                     
                                           $data = $obj -> mainreg($name,$fname,$mname,$designation,$sscyear,$blood,$email,$contact,$guestno,$guestname,$paymode,$payamount,$paydate,$paynumber,$trxid,$presentadd,$tshirt,$uimage,$imaget);
-                                          if($data){
-                                            $successm="Your Registration Complete Successfully!";
-                                          }else{
-                                            $errorm="Please do registration with proper information!";
-                                          }                         
+                                                                 
                     
                                       }
                     
